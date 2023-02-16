@@ -1,0 +1,80 @@
+<resources>
+    <string name="app_name">Fitimer</string>
+    <string name="times">Times</string>
+    <string name="active">Active</string>
+    <string name="active_time">Active time</string>
+    <string name="rest">Rest</string>
+    <string name="rest_time">Rest time</string>
+    <string name="total"> Total</string>
+    <string name="save">Save</string>
+    <string name="add_timer">Set new timer</string>
+    <string name="hour">h</string>
+    <string name="minute">min</string>
+    <string name="second">sec</string>
+    <string name="title">Title</string>
+    <string name="repeat">Repeat</string>
+    <string name="next">Next</string>
+    <string name="prev">Prev</string>
+    <string name="finish">Finish</string>
+    <string name="sound">Sound</string>
+    <string name="title_error">Title can not be empty</string>
+    <string name="timer_picker_error">Time can not be zero</string>
+    <string name="add">ADD</string>
+    <string name="change_language">Change Language</string>
+    <string name="search">Search…</string>
+    <string name="tap_to_add">TAP TO ADD</string>
+    <string name="update_timer_title">Update!!</string>
+    <string name="update_timer_message">The timer will be stop.</string>
+    <string name="update_timer_ok">OK</string>
+    <string name="update_timer_cancel">CANCEL</string>
+    <string name="update_timer_show_again">Don\'t show again</string>
+
+    <array name="add_timer_titles">
+        <item>Set Active Time</item>
+        <item>Set Rest Time</item>
+        <item>Set Repeat Of Interval</item>
+    </array>
+
+    <array name="main_fragment_title_guide">
+        <item>New Timer</item>
+        <item>Change App Theme</item>
+        <item>Change App Language</item>
+    </array>
+
+    <array name="main_fragment_description_guide">
+        <item>Add new timer</item>
+        <item>Change app theme \n between light and night mode</item>
+        <item>Change app language \n between english and persian</item>
+    </array>
+
+    <array name="add_timer_title_guide">
+        <item>Next Page</item>
+        <item>Previous Page</item>
+        <item>Timer Title</item>
+        <item>Set Time</item>
+    </array>
+
+    <array name="add_timer_description_guide">
+        <item />
+        <item />
+        <item>Set Timer Title</item>
+        <item>Set Your Interval Time
+            \n Tap On Selected Item
+            \n To Change With keyboard
+        </item>
+    </array>
+
+    <array name="timer_details_title_guide">
+        <item>Start Timer</item>
+        <item>Restart Timer</item>
+        <item>Check Step</item>
+        <item>Save Timer</item>
+    </array>
+
+    <array name="timer_details_description_guide">
+        <item>Start and pause timer</item>
+        <item>restart timer</item>
+        <item>Check your current step</item>
+        <item>Save or delete your Timer</item>
+    </array>
+</resources>

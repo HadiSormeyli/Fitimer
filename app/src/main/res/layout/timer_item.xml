@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="timer"
+            type="com.android.mhs.fitimer.model.Timer" />
+
+        <variable
+            name="onTimerClick"
+            type="com.android.mhs.fitimer.ui.main.callbacks.OnTimerClick" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/side_space"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/side_space"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/primary_corner_bg"
+        android:backgroundTint="?attr/colorSecondary"
+        android:elevation="4dp"
+        android:onClick="@{() -> onTimerClick.onTimerClick(timer)}"
+        android:padding="@dimen/inner_padding">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/times_constraint_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/inner_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/total_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:drawableTop="@drawable/ic_total_time"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:textColor="?attr/total"
+                android:totalTime="@{timer}"
+                app:iconGravity="top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/active_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:drawableTop="@drawable/ic_active_time"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:textColor="?attr/active"
+                android:time="@{timer.activeTime}"
+                app:iconGravity="top"
+                app:layout_constraintEnd_toStartOf="@+id/total_time_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/rest_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:drawableTop="@drawable/ic_rest_time"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:textColor="?attr/rest"
+                android:time="@{timer.restTime}"
+                app:iconGravity="top"
+                app:layout_constraintEnd_toStartOf="@+id/active_time_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/repeat_time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="16dp"
+                android:drawableLeft="@drawable/ic_baseline_clear_24"
+                android:drawablePadding="4dp"
+                android:gravity="center"
+                android:repeat="@{timer.repeat}"
+                android:textColor="?attr/repeat"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                app:drawableTint="?attr/repeat"
+                app:iconGravity="top"
+                app:layout_constraintBottom_toBottomOf="@+id/rest_time_tv"
+                app:layout_constraintEnd_toStartOf="@+id/rest_time_tv"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/line_view"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:background="@drawable/primary_corner_bg"
+            android:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/timer_title_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:singleLine="true"
+            android:textSize="24sp"
+            android:timerTitle="@{timer.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/times_constraint_layout"
+            app:layout_constraintStart_toEndOf="@id/line_view"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.main.addtimer.SetActiveTimeFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/timer_title_cv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/timer_title_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint=""
+                android:theme="@style/NightEditText"
+                app:boxBackgroundColor="?attr/status_bar"
+                app:boxCornerRadiusBottomEnd="@dimen/out_radius"
+                app:boxCornerRadiusBottomStart="@dimen/out_radius"
+                app:boxCornerRadiusTopEnd="@dimen/out_radius"
+                app:boxCornerRadiusTopStart="@dimen/out_radius"
+                app:boxStrokeColor="@android:color/transparent"
+                app:boxStrokeWidth="0dp"
+                app:counterEnabled="true"
+                app:counterMaxLength="20"
+                app:hintEnabled="false"
+                app:hintTextColor="?attr/colorControlNormal">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/timer_title_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/title"
+                    android:inputType="textAutoComplete"
+                    android:maxLength="20"
+                    android:selectAllOnFocus="true"
+                    android:textColor="?attr/colorControlNormal" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/active_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_active_time"
+            android:drawablePadding="8dp"
+            android:text="@string/active_time"
+            android:textColor="?attr/active"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/timer_title_cv" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/number_picker_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/active_time_tv">
+
+            <TextView
+                android:id="@+id/active_minute_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/minute"
+                app:layout_constraintBottom_toTopOf="@id/active_minute_np"
+                app:layout_constraintEnd_toEndOf="@id/active_minute_np"
+                app:layout_constraintStart_toStartOf="@id/active_minute_np" />
+
+            <com.android.mhs.fitimer.ui.custom.numberpicker.CustomNumberPicker
+                android:id="@+id/active_minute_np"
+                style="@style/NPWidget.Holo.NumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/active_minute_np"
+                app:layout_constraintRight_toLeftOf="@id/active_second_np"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/active_second_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/second"
+                app:layout_constraintBottom_toTopOf="@id/active_second_np"
+                app:layout_constraintEnd_toEndOf="@id/active_second_np"
+                app:layout_constraintStart_toStartOf="@id/active_second_np" />
+
+            <com.android.mhs.fitimer.ui.custom.numberpicker.CustomNumberPicker
+                android:id="@+id/active_second_np"
+                style="@style/NPWidget.Holo.NumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

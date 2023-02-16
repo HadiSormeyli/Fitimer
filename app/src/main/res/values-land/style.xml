@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NPWidget.Holo.NumberPicker" parent="NPWidget.NumberPicker">
+        <item name="solidColor">@android:color/transparent</item>
+        <item name="mSelectorWheelItem">3</item>
+        <item name="selectionDivider">@android:color/transparent</item>
+        <item name="internalLayout">@layout/number_picker</item>
+        <item name="mTextSize">16sp</item>
+        <item name="mSelectedTextSize">28sp</item>
+        <item name="internalMinWidth">64dp</item>
+        <item name="internalMaxHeight">144dp</item>
+    </style>
+</resources>

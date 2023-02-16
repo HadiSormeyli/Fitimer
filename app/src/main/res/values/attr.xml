@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="NumberPicker">
+        <attr name="solidColor" format="color|reference" />
+        <attr name="mSelectorWheelItem" format="integer" />
+        <attr name="mTextSize" format="dimension" />
+        <attr name="mSelectedTextSize" format="dimension" />
+        <attr name="selectionDivider" format="reference" />
+        <attr name="selectionDividerHeight" format="dimension" />
+        <attr name="selectionDividersDistance" format="dimension" />
+        <attr name="internalMinHeight" format="dimension" />
+        <attr name="internalMaxHeight" format="dimension" />
+        <attr name="internalMinWidth" format="dimension" />
+        <attr name="internalMaxWidth" format="dimension" />
+        <attr name="internalLayout" format="reference" />
+        <attr name="virtualButtonPressedDrawable" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="CircularSeekBar">
+        <attr name="cs_step" format="float" />
+        <attr name="cs_max" format="integer" />
+        <attr name="cs_min" format="integer" />
+        <attr name="cs_progressWidth" format="dimension" />
+        <attr name="cs_arcWidth" format="dimension" />
+        <attr name="cs_indicator_enabled" format="boolean" />
+        <attr name="cs_progress" format="float" />
+        <attr name="cs_indicatorRadius" format="dimension" />
+        <attr name="cs_arcRadius" format="dimension" />
+        <attr name="cs_enabled" format="boolean" />
+        <attr name="cs_color_list" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="styles">
+        <attr name="active" format="color|reference" />
+        <attr name="rest" format="color|reference" />
+        <attr name="total" format="color|reference" />
+        <attr name="repeat" format="color|reference" />
+        <attr name="fab_color" format="color|reference" />
+        <attr name="status_bar" format="color|reference" />
+        <attr name="editTextTheme" format="reference" />
+        <attr name="radioButtonTheme" format="reference" />
+    </declare-styleable>
+</resources>

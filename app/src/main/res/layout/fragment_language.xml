@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onCheckedChangeListener"
+            type="android.widget.RadioGroup.OnCheckedChangeListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/top_radius_bg"
+        android:backgroundTint="?attr/colorPrimary"
+        android:elevation="56dp"
+        app:behavior_hideable="true"
+        app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+        tools:context=".ui.main.LanguageFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/language_app_bar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            app:elevation="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/language_tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_baseline_clear_24"
+                app:title="@string/change_language" />
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <RadioGroup
+            android:id="@+id/language_radio_group"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:gravity="center"
+            android:onCheckedChanged="@{onCheckedChangeListener}"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/language_app_bar">
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/english_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="English"
+                android:theme="?attr/radioButtonTheme" />
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:id="@+id/persian_radio_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-8dp"
+                android:text="فارسی"
+                android:theme="?attr/radioButtonTheme"
+                app:fontFamily="@font/yekan_bakh_fa_regular" />
+        </RadioGroup>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

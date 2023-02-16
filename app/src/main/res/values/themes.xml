@@ -1,0 +1,30 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.IntervalTimer.Light" parent="App.Theme.Light">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/off_white</item>
+        <item name="colorPrimaryVariant">@color/off_white</item>
+        <item name="colorOnPrimary">@color/off_white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/off_white</item>
+        <item name="colorSecondaryVariant">@color/off_white</item>
+        <item name="colorOnSecondary">@color/off_white</item>
+        <item name="colorControlNormal">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="status_bar">@color/indigo_600</item>
+        <item name="android:statusBarColor">?attr/status_bar</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+        <item name="active">@color/yellow_700</item>
+        <item name="rest">@color/light_green_a_500</item>
+        <item name="total">@color/red_400</item>
+        <item name="repeat">@color/grey_600</item>
+        <item name="fab_color">@color/light_blue_a_400</item>
+
+        <item name="editTextTheme">@style/LightEditText</item>
+        <item name="radioButtonTheme">@style/LightRadioButtonStyle</item>
+    </style>
+</resources>

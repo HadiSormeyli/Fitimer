@@ -1,0 +1,30 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.IntervalTimer.Night" parent="App.Theme.Night">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/dark_blue</item>
+        <item name="colorPrimaryVariant">@color/dark_blue</item>
+        <item name="colorOnPrimary">@color/dark_blue</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/darker_blue</item>
+        <item name="colorSecondaryVariant">@color/darker_blue</item>
+        <item name="colorOnSecondary">@color/darker_blue</item>
+        <item name="colorControlNormal">@color/off_white</item>
+        <!-- Status bar color. -->
+        <item name="status_bar">@color/darker_blue</item>
+        <item name="android:statusBarColor">?attr/status_bar</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">?attr/colorPrimary</item>
+        <item name="android:textColor">@color/off_white</item>
+        <item name="android:windowAnimationStyle">@style/WindowAnimationTransition</item>
+
+        <item name="active">@color/pink_500</item>
+        <item name="rest">@color/light_blue</item>
+        <item name="total">@color/orange_700</item>
+        <item name="repeat">@color/grey_600</item>
+        <item name="fab_color">@color/pink_a_700</item>
+
+        <item name="editTextTheme">@style/NightEditText</item>
+        <item name="radioButtonTheme">@style/NightRadioButtonStyle</item>
+    </style>
+</resources>

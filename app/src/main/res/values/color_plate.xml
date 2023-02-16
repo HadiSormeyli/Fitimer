@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--red-->
+    <color name="red_400">#ef5350</color>
+    <color name="red_500">#f44336</color>
+
+    <!--pink-->
+    <color name="pink_400">#ec407a</color>
+    <color name="pink_500">#e91e63</color>
+    <color name="pink_600">#d81b60</color>
+    <color name="pink_700">#c2185b</color>
+    <color name="pink_800">#ad1457</color>
+    <color name="pink_a_700">#c51162</color>
+
+    <!--purple-->
+    <color name="purple_400">#ab47bc</color>
+
+    <!--indigo-->
+    <color name="indigo_600">#3949ab</color>
+
+    <!--blue-->
+    <color name="blue_600">#1e88e5</color>
+    <color name="blue_900">#0d47a1</color>
+
+    <!--light blue-->
+    <color name="light_blue_200">#81d4fa</color>
+    <color name="light_blue_400">#29b6f6</color>
+    <color name="light_blue_500">#03a9f4</color>
+    <color name="light_blue_600">#039be5</color>
+    <color name="light_blue_700">#0288d1</color>
+    <color name="light_blue_800">#0277bd</color>
+    <color name="light_blue_a_400">#00b0ff</color>
+
+    <!--light green-->
+    <color name="light_green_a_300">#91FF11</color>
+    <color name="light_green_a_400">#76ff03</color>
+    <color name="light_green_a_500">#63D800</color>
+    <color name="light_green_a_600">#61D500</color>
+    <color name="light_green_a_700">#64dd17</color>
+
+    <!--yellow-->
+    <color name="yellow_400">#ffee58</color>
+    <color name="yellow_500">#ffeb3b</color>
+    <color name="yellow_600">#fdd835</color>
+    <color name="yellow_700">#fbc02d</color>
+    <color name="yellow_800">#f9a825</color>
+
+    <!--orange-->
+    <color name="orange_400">#ffa726</color>
+    <color name="orange_700">#f57c00</color>
+
+    <!--grey-->
+    <color name="grey_600">#757575</color>
+    <color name="grey_800">#605E5E</color>
+</resources>

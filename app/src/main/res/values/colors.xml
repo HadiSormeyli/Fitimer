@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="dark_blue">#1E1B2E</color>
+    <color name="darker_blue">#2E2D50</color>
+    <color name="light_blue">#00DAF7</color>
+    <color name="dark_green">#1C3012</color>
+    <color name="gray_32">#51A39F9F</color>
+    <color name="off_white">#F1F1F1</color>
+
+    <integer-array name="active_circular">
+        <item>@color/pink_700</item>
+        <item>@color/pink_600</item>
+        <item>@color/yellow_800</item>
+        <item>@color/yellow_700</item>
+        <item>@color/yellow_800</item>
+        <item>@color/pink_600</item>
+        <item>@color/pink_700</item>
+    </integer-array>
+
+    <integer-array name="rest_circular">
+        <item>@color/light_green_a_700</item>
+        <item>@color/light_green_a_600</item>
+        <item>@color/light_blue_600</item>
+        <item>@color/light_blue_500</item>
+        <item>@color/light_blue_600</item>
+        <item>@color/light_green_a_600</item>
+        <item>@color/light_green_a_700</item>
+    </integer-array>
+</resources>

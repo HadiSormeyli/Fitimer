@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NPWidget">
+        <item name="android:textColor">?android:attr/textAppearance</item>
+    </style>
+
+    <style name="NPWidget.NumberPicker">
+        <item name="android:orientation">vertical</item>
+        <item name="android:fadingEdge">vertical</item>
+        <item name="android:fadingEdgeLength">56dp</item>
+    </style>
+
+    <style name="NPWidget.Holo.NumberPicker" parent="NPWidget.NumberPicker">
+        <item name="solidColor">@android:color/transparent</item>
+        <item name="selectionDivider">@android:color/transparent</item>
+        <item name="internalLayout">@layout/number_picker</item>
+        <item name="mTextSize">18sp</item>
+        <item name="mSelectedTextSize">32sp</item>
+        <item name="internalMinWidth">64dp</item>
+        <item name="internalMaxHeight">264dp</item>
+    </style>
+
+    <style name="WindowAnimationTransition">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="LightEditText" parent="Widget.Design.TextInputLayout">
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/blue_900</item>
+        <item name="colorControlHighlight">@color/blue_900</item>
+    </style>
+
+    <style name="NightEditText" parent="Widget.Design.TextInputLayout">
+        <item name="colorSecondary">@color/off_white</item>
+        <item name="colorSecondaryVariant">@color/off_white</item>
+        <item name="colorControlNormal">@color/off_white</item>
+        <item name="colorControlActivated">@color/blue_900</item>
+        <item name="colorControlHighlight">@color/blue_900</item>
+    </style>
+
+    <style name="LightRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textSize">18sp</item>
+        <item name="colorControlNormal">@color/dark_blue</item>
+        <item name="colorControlActivated">@color/dark_blue</item>
+    </style>
+
+    <style name="NightRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textSize">18sp</item>
+        <item name="colorControlNormal">@color/off_white</item>
+        <item name="colorControlActivated">@color/off_white</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:statusBarColor">@color/dark_blue</item>
+    </style>
+
+    <style name="App.Theme.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="fontFamily">@font/roboto_en</item>
+        <item name="android:fontFamily">@font/roboto_en</item>
+    </style>
+
+    <style name="App.Theme.Night" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="fontFamily">@font/roboto_en</item>
+        <item name="android:fontFamily">@font/roboto_en</item>
+    </style>
+</resources>

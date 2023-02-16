@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fitimer</string>
+    <string name="times">زمان ها</string>
+    <string name="active">فعالیت</string>
+    <string name="active_time">زمان فعالیت</string>
+    <string name="rest">استراحت</string>
+    <string name="rest_time">زمان استراحت</string>
+    <string name="total">زمان کل</string>
+    <string name="save">ذخیره</string>
+    <string name="add_timer">ایجاد تایمر جدید</string>
+    <string name="hour">ساعت</string>
+    <string name="minute">دقیقه</string>
+    <string name="second">ثانیه</string>
+    <string name="title">عنوان</string>
+    <string name="repeat">تعداد تکرار</string>
+    <string name="next">بعدی</string>
+    <string name="prev">قبلی</string>
+    <string name="finish">اتمام</string>
+    <string name="sound">صدا</string>
+    <string name="title_error">عنوان نمی تواند خالی بماند</string>
+    <string name="timer_picker_error">زمان نمی تواند صفر باشد</string>
+    <string name="add">اضافه کردن</string>
+    <string name="change_language">تغییر زبان</string>
+    <string name="search">جستجو…</string>
+    <string name="tap_to_add">برای اضافه کردن کلیک کنید</string>
+    <string name="update_timer_title">آپدیت!!</string>
+    <string name="update_timer_message">تایمر متوقف خواهد شد.</string>
+    <string name="update_timer_ok">باشه</string>
+    <string name="update_timer_cancel">لغو</string>
+    <string name="update_timer_show_again">برای بار دیگر نمایش نده</string>
+
+    <array name="add_timer_titles">
+        <item>تنظیم زمان فعالیت</item>
+        <item>تنظیم زمان استراحت</item>
+        <item>تنظیم تعداد تکرار</item>
+    </array>
+
+    <array name="main_fragment_title_guide">
+        <item>تایمر جدید</item>
+        <item>تغییر تم برنامه</item>
+        <item>تغییر زبان برنامه</item>
+    </array>
+
+    <array name="main_fragment_description_guide">
+        <item>اضافه کردن تایمر جدید</item>
+        <item>تغییر تم در حالت های روز و شب</item>
+        <item>تغییر زبان برنامه بین انگلیسی و فارسی</item>
+    </array>
+
+    <array name="add_timer_title_guide">
+        <item>صفحه بعدی</item>
+        <item>صفحه قبلی</item>
+        <item>عنوان تایمر</item>
+        <item>تنظیم زمان</item>
+    </array>
+
+    <array name="add_timer_description_guide">
+        <item/>
+        <item/>
+        <item>تنظیم عنوان تایمر</item>
+        <item>تنظیم زمان اینتروال \n با کلیک بر روی عدد انخاب شده \nمیتوانید زمان را با کیبورد تغییر دهید</item>
+    </array>
+
+    <array name="timer_details_title_guide">
+        <item>شروع تایمر</item>
+        <item>شروع مجدد تایمر</item>
+        <item>بررسی مرحله</item>
+        <item>ذخیره کردن تایمر</item>
+    </array>
+
+    <array name="timer_details_description_guide">
+        <item>شروع و متوقف کردن تایمر</item>
+        <item>شروع مجدد تایمر</item>
+        <item>بررسی مرحله کنونی</item>
+        <item>ذخیره یا حذف کردن تایمر</item>
+    </array>
+</resources>

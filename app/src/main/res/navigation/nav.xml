@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.android.mhs.fitimer.ui.main.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_timerDetailsFragment"
+            app:destination="@id/timerDetailsFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_mainFragment_to_addTimerFragment"
+            app:destination="@id/addTimerFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+        <action
+            android:id="@+id/action_mainFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timerDetailsFragment"
+        android:name="com.android.mhs.fitimer.ui.main.detail.TimerDetailsFragment"
+        android:label="TimerDetailsFragment"
+        tools:layout="@layout/fragment_timer_details">
+        <action
+            android:id="@+id/action_timerDetailsFragment_to_addTimerFragment"
+            app:destination="@id/addTimerFragment"
+            app:enterAnim="@anim/slide_up"
+            app:exitAnim="@anim/slide_down"
+            app:popEnterAnim="@anim/slide_up"
+            app:popExitAnim="@anim/slide_down" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTimerFragment"
+        android:name="com.android.mhs.fitimer.ui.main.addtimer.AddTimerFragment"
+        android:label="AddTimerFragment"
+        tools:layout="@layout/fragment_add_timer" />
+    <dialog
+        android:id="@+id/languageFragment"
+        android:name="com.android.mhs.fitimer.ui.main.LanguageFragment"
+        android:label="LanguageFragment"
+        tools:layout="@layout/fragment_language" />
+</navigation>

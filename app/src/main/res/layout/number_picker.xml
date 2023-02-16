@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <view
+        android:id="@+id/np__numberpicker_input"
+        class="com.android.mhs.fitimer.ui.custom.numberpicker.CustomNumberPicker$CustomEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="center"
+        android:singleLine="true"
+        android:theme="?attr/editTextTheme" />
+</merge>

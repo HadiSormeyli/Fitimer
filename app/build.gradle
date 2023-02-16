@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.android.mhs.fitimer"
+        minSdk 21
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "TAPSELL_KEY", "\"hljetjsncahnqfjbpsatlqspgbhmoigtceoccqpgtqathjfbrpfqoepcfftcarfraofisf\""
+            buildConfigField "String", "DATABASE_NAME", "\"fitimer.db\""
+            buildConfigField "String", "ADDS_KEY", "\"622da72d5161a61248a66e91\""
+        }
+        release {
+            buildConfigField "String", "TAPSELL_KEY", "\"hljetjsncahnqfjbpsatlqspgbhmoigtceoccqpgtqathjfbrpfqoepcfftcarfraofisf\""
+            buildConfigField "String", "DATABASE_NAME", "\"fitimer.db\""
+            buildConfigField "String", "ADDS_KEY", "\"622da72d5161a61248a66e91\""
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    //hilt
+    implementation("com.google.dagger:hilt-android:2.42")
+    annotationProcessor("com.google.dagger:hilt-compiler:2.42")
+
+    //navigation
+    def nav_version = "2.4.1"
+    implementation "androidx.navigation:navigation-fragment:$nav_version"
+    implementation "androidx.navigation:navigation-ui:$nav_version"
+
+    //rxjava
+    implementation('io.reactivex.rxjava2:rxandroid:2.1.1')
+    implementation('io.reactivex.rxjava2:rxjava:2.2.21')
+
+    //room database
+    def room_version = "2.4.3"
+    implementation("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
+    implementation("androidx.room:room-rxjava2:$room_version")
+    implementation("com.google.code.gson:gson:2.9.0")
+
+
+    //lottie
+    implementation "com.airbnb.android:lottie:3.4.0"
+
+    //adds
+    implementation "ir.tapsell.plus:tapsell-plus-sdk-android:2.1.6"
+}
