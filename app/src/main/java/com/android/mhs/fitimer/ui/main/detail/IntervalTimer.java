@@ -39,7 +39,6 @@ public class IntervalTimer {
                         } else {
                             currentStep++;
                             currentTime = (currentStep % 2 == 0) ? activeTime : restTime;
-                            tickListener.onTick(currentTime);
                             tickListener.onNextStep(currentTime, currentStep);
                         }
                         handler.postDelayed(this, SECOND);
@@ -55,7 +54,6 @@ public class IntervalTimer {
         if (currentStep < this.repeat - 1) {
             currentStep++;
             currentTime = (currentStep % 2 == 0) ? activeTime : restTime;
-            tickListener.onTick(currentTime);
             tickListener.onNextStep(currentTime, currentStep);
         }
     }
@@ -64,7 +62,6 @@ public class IntervalTimer {
         if (currentStep > 0) {
             currentStep--;
             currentTime = (currentStep % 2 == 0) ? activeTime : restTime;
-            tickListener.onTick(currentTime);
             tickListener.onNextStep(currentTime, currentStep);
         }
     }

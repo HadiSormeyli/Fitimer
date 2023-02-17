@@ -2,7 +2,6 @@ package com.android.mhs.fitimer.ui.base;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
@@ -19,10 +18,9 @@ import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 
 import com.android.mhs.fitimer.R;
-import com.android.mhs.fitimer.data.AppDataManager;
+import com.android.mhs.fitimer.data.local.prefs.AppPreferencesHelper;
 
 import java.util.Locale;
-
 
 public abstract class BaseActivity<D extends ViewDataBinding, V extends BaseViewModel> extends AppCompatActivity
         implements BaseFragment.Callback {
@@ -30,16 +28,12 @@ public abstract class BaseActivity<D extends ViewDataBinding, V extends BaseView
 
     protected V viewModel;
     protected D binding;
+    private AppPreferencesHelper preferencesHelper;
 
     public abstract @LayoutRes
     int getLayoutId();
 
     public abstract void preformViewModel();
-
-
-    public Intent newIntent(Class<?> activity) {
-        return new Intent(this, activity);
-    }
 
     @Override
     public void onFragmentAttached() {
@@ -56,16 +50,14 @@ public abstract class BaseActivity<D extends ViewDataBinding, V extends BaseView
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        setTheme();
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        setTheme(R.style.Theme_IntervalTimer_Night);
+        setTheme();
         super.onCreate(savedInstanceState);
         preformViewModel();
         performDataBinding();
     }
 
     public void setTheme() {
-        if (viewModel.dataManager.isNight()) {//dark
+        if (preferencesHelper.isNight()) {//dark
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
             setTheme(R.style.Theme_IntervalTimer_Night);
         } else {
@@ -75,7 +67,8 @@ public abstract class BaseActivity<D extends ViewDataBinding, V extends BaseView
     }
 
     public Context setLocale(Context context) {
-        String language = "en";
+        preferencesHelper = new AppPreferencesHelper(context);
+        String language = preferencesHelper.getLanguage();
         if (language == null || language.isEmpty()) {
             language = Locale.getDefault().getLanguage();
         }

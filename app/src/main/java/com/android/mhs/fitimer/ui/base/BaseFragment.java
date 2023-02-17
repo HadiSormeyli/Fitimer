@@ -42,7 +42,9 @@ public abstract class BaseFragment<D extends ViewDataBinding, V extends BaseView
         return guideView != null && guideView.isShowing();
     }
 
-    public abstract void showGuideView();
+    public void showGuideView() {
+
+    }
 
     @Override
     public void onAttach(@NonNull Context context) {

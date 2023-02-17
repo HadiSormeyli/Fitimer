@@ -56,22 +56,23 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
     private TimerService timerService;
     private final BroadcastReceiver mainTimerBroadcastReceiver = new BroadcastReceiver() {
 
-        @SuppressLint("DefaultLocale")
+        @SuppressLint({"DefaultLocale", "SetTextI18n"})
         @Override
         public void onReceive(Context context, Intent intent) {
             switch (intent.getStringExtra(TimerService.MESSAGE)) {
                 case TimerService.ON_TICK:
                     long time = intent.getLongExtra(TimerService.TICK, 0);
-                    binding.runningTimerSeekbar.setProgress(time);
+                    binding.runningTimerSeekbar.animateTo(time);
                     binding.runningTimerTv.setText(CommonUtils.getTime(time));
                     break;
 
                 case TimerService.NEXT_STEP:
                     long stepTime = intent.getLongExtra(TimerService.TICK, 0);
                     long step = intent.getIntExtra(TimerService.STEP, 0);
+                    binding.runningTimerTv.setText(CommonUtils.getTime(stepTime));
                     binding.runningTimerSeekbar.onChangeStep(step % 2 == 0);
                     binding.runningTimerSeekbar.setMAX((int) stepTime);
-                    binding.runningTimerStepTv.setText(String.format("%d / %d", step / 2 + 1, timerService.getRepeat()));
+                    binding.runningTimerStepTv.setText("(" + String.format("%d / %d", timerService.getStep() / 2 + 1, timerService.getRepeat()) + ")");
                     break;
 
                 case TimerService.NOTIFICATION_CLOSE_BUTTON:
@@ -114,7 +115,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
         binding.runningTimerTitleTv.setText(timerService.getTitle());
         binding.runningTimerSeekbar.setMAX((int) timerService.getMax());
         binding.pauseRunningTimerBu.setSelected(timerService.isRunning());
-        binding.runningTimerStepTv.setText((timerService.getStep() + 1) + " / " + timerService.getRepeat());
+        binding.runningTimerStepTv.setText("(" + (timerService.getStep() / 2 + 1) + " / " + timerService.getRepeat() + ")");
     }
 
     @Override
@@ -171,7 +172,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
             binding.mainToolBar.setPadding((int) (40 * CommonUtils.dp()), 0, 0, 0);
         } else binding.mainToolBar.setPadding(0, 0, (int) (80 * CommonUtils.dp()), 0);
 
-//        setUpSearchAnimation();
+        setUpSearchAnimation();
         setUpAddButton();
         binding.setOnClickListener(this);
         observeData();
@@ -219,8 +220,8 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
         layoutParams.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
 
         if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
-            lottieAnimationView.setAnimation("night_lottie_animation.json");
-        } else lottieAnimationView.setAnimation("light_lottie_animation.json");
+            lottieAnimationView.setAnimation(R.raw.night_lottie_animation);
+        } else lottieAnimationView.setAnimation(R.raw.light_lottie_animation);
 
         lottieAnimationView.setSpeed(1);
         lottieAnimationView.loop(true);
@@ -394,12 +395,12 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
 
     @Override
     public void onFilterComplete(int i) {
-//        if (i == 0 && !lottieAnimationView.isAnimating()) {
-//            lottieAnimationView.setVisibility(View.VISIBLE);
-//            lottieAnimationView.playAnimation();
-//        } else if (i > 0) {
-//            lottieAnimationView.pauseAnimation();
-//            lottieAnimationView.setVisibility(View.GONE);
-//        }
+        if (i == 0 && !lottieAnimationView.isAnimating()) {
+            lottieAnimationView.setVisibility(View.VISIBLE);
+            lottieAnimationView.playAnimation();
+        } else if (i > 0) {
+            lottieAnimationView.pauseAnimation();
+            lottieAnimationView.setVisibility(View.GONE);
+        }
     }
 }

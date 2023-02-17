@@ -42,7 +42,7 @@
             android:layout_marginEnd="8dp"
             android:onClick="@{onClickListener}"
             android:padding="@dimen/touch_target_padding"
-            android:src="@drawable/ic_baseline_clear_24"
+            android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -242,6 +242,7 @@
                             android:background="@drawable/primary_16radius_bg"
                             android:onClick="@{onClickListener}"
                             android:padding="@dimen/touch_target_padding"
+                            app:tint="@android:color/white"
                             android:src="@drawable/play_background"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"

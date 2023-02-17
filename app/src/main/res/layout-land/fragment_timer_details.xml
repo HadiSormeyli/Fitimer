@@ -42,7 +42,7 @@
             android:layout_marginTop="8dp"
             android:onClick="@{onClickListener}"
             android:padding="@dimen/touch_target_padding"
-            android:src="@drawable/ic_baseline_clear_24"
+            android:src="@drawable/baseline_delete_24"
             app:layout_constraintEnd_toStartOf="@id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -262,7 +262,8 @@
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:roundPercent="1" />
+                            app:roundPercent="1"
+                            app:tint="@android:color/white" />
 
                         <ImageView
                             android:id="@+id/restart_timer_button"

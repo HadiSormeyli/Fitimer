@@ -24,8 +24,8 @@ import com.android.mhs.fitimer.BuildConfig;
 import com.android.mhs.fitimer.FitimerApp;
 import com.android.mhs.fitimer.R;
 import com.android.mhs.fitimer.model.Timer;
-import com.android.mhs.fitimer.ui.main.detail.IntervalTimer;
 import com.android.mhs.fitimer.ui.main.MainActivity;
+import com.android.mhs.fitimer.ui.main.detail.IntervalTimer;
 import com.android.mhs.fitimer.ui.main.detail.TimerDetailsFragment;
 
 public class TimerService extends Service implements IntervalTimer.TimerTickListener {
@@ -102,7 +102,8 @@ public class TimerService extends Service implements IntervalTimer.TimerTickList
                 .createPendingIntent();
 
         notificationLayout.setTextViewText(R.id.notification_title_tv, timer.getTitle());
-        notificationLayout.setTextViewText(R.id.notification_step_tv, (intervalTimer.getCurrentStep() / 2 + 1) + " / " + timer.getRepeat());
+        notificationLayout.setTextViewText(R.id.notification_time_tv, intervalTimer.getCurrentTime() + " / " + getMax());
+        notificationLayout.setTextViewText(R.id.notification_step_tv, "(" + (intervalTimer.getCurrentStep() / 2 + 1) + " / " + timer.getRepeat() + ")");
         notificationLayout.setImageViewResource(R.id.notification_play_button, resource);
 
 
@@ -128,8 +129,14 @@ public class TimerService extends Service implements IntervalTimer.TimerTickList
             stopPlayer();
             player = MediaPlayer.create(this, R.raw.alarm);
             player.setLooping(true);
-            player.start();
+//            player.start(); TODO:uncomment this line
         }
+
+        updateNotification(
+                (intervalTimer.isPlaying())
+                        ? R.drawable.ic_baseline_pause_24
+                        : R.drawable.ic_baseline_play_arrow_24
+        );
 
         Intent timerInfoIntent = new Intent(TimerDetailsFragment.TimerBroadCastReceiver.KEY);
         timerInfoIntent.putExtra(MESSAGE, ON_TICK);
@@ -191,6 +198,10 @@ public class TimerService extends Service implements IntervalTimer.TimerTickList
         this.timer = timer;
     }
 
+    public long getTime() {
+        return intervalTimer.getCurrentTime();
+    }
+
     public void nextFiveSecond() {
         if (intervalTimer != null)
             intervalTimer.nextFiveSecond();
@@ -234,6 +245,14 @@ public class TimerService extends Service implements IntervalTimer.TimerTickList
 
     public int getRepeat() {
         return (int) timer.getRepeat();
+    }
+
+    public int getActiveTime() {
+        return (int) timer.getActiveTime();
+    }
+
+    public int getRestTime() {
+        return (int) timer.getRestTime();
     }
 
     public String getTitle() {

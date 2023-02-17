@@ -7,17 +7,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.CheckBox;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -34,13 +29,10 @@ import com.android.mhs.fitimer.ui.custom.guideview.Gravity;
 import com.android.mhs.fitimer.ui.custom.guideview.GuideView;
 import com.android.mhs.fitimer.ui.custom.guideview.PointerType;
 import com.android.mhs.fitimer.utils.CommonUtils;
-import com.android.mhs.fitimer.utils.rx.SchedulerProvider;
 import com.android.mhs.fitimer.viewmodel.MainViewModel;
-import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NavigableMap;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -169,6 +161,7 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
             timerService.setTick();
             binding.pauseTimerButton.setSelected(timerService.isRunning());
             binding.restartTimerButton.setEnabled(true);
+            binding.timerSeekbar.setMAX((int) ((timerService.getStep() % 2 == 0) ? timer.getActiveTime() : timer.getRestTime()));
             setStep(timerService.getStep());
         }
     }
@@ -199,9 +192,12 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
         final String active = CommonUtils.getTime(timer.getActiveTime());
         final String rest = CommonUtils.getTime(timer.getRestTime());
 
+        String activeTime = activity.getResources().getString(R.string.active_time);
+        String restTime = activity.getResources().getString(R.string.rest_time);
+
         for (int i = 0; i < timer.getRepeat(); i++) {
-            steps.add(activity.getResources().getString(R.string.active_time) + String.format(" %d", (i + 1)) + " : " + active);
-            steps.add(activity.getResources().getString(R.string.rest_time) + String.format(" %d", (i + 1)) + " : " + rest);
+            steps.add(activeTime + String.format(" %d", (i + 1)) + " : " + active);
+            steps.add(restTime + String.format(" %d", (i + 1)) + " : " + rest);
         }
 
         binding.timerStepView.reverseDraw(false)
@@ -227,6 +223,9 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
 
             case R.id.delete_timer:
                 viewModel.deleteTimer();
+                if (timerService != null)
+                    if (timerService.getTimer() != null)
+                        timerService.close();
                 activity.onBackPressed();
                 break;
 
@@ -283,7 +282,7 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
     }
 
     public void onTick(long time) {
-        binding.timerSeekbar.setProgress(time);
+        binding.timerSeekbar.animateTo(time);
         binding.timerTextView.setText(CommonUtils.getTime(time));
     }
 
@@ -326,9 +325,7 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
     @Override
     public void onResume() {
         super.onResume();
-        if (timerService == null)
-            startService();
-
+        startService();
         LocalBroadcastManager.getInstance(activity).registerReceiver(broadCastReceiver, new IntentFilter(TimerBroadCastReceiver.KEY));
     }
 
@@ -354,7 +351,9 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
                         break;
 
                     case TimerService.NEXT_STEP:
-                        onNextStep(intent.getLongExtra(TimerService.TICK, 0), intent.getIntExtra(TimerService.STEP, 0));
+                        long time = intent.getLongExtra(TimerService.TICK, 0);
+                        onNextStep(time, intent.getIntExtra(TimerService.STEP, 0));
+                        binding.timerTextView.setText(CommonUtils.getTime(time));
                         break;
 
                     case TimerService.NOTIFICATION_PLAY_BUTTON:

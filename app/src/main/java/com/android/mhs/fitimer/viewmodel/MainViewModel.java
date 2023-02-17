@@ -73,7 +73,6 @@ public class MainViewModel extends BaseViewModel {
     }
 
     public void setSearchText(String text) {
-        System.out.println("viewmodel : " + text);
         searchText.setValue(text);
     }
 

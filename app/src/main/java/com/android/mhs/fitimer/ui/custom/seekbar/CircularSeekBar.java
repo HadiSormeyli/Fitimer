@@ -3,6 +3,7 @@ package com.android.mhs.fitimer.ui.custom.seekbar;
 
 import static com.android.mhs.fitimer.utils.CommonUtils.removeAlpha;
 
+import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -16,11 +17,11 @@ import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AppCompatDelegate;
 
 import com.android.mhs.fitimer.R;
 
@@ -158,6 +159,20 @@ public class CircularSeekBar extends View {
 
         active = getResources().getIntArray(R.array.active_circular);
         rest = getResources().getIntArray(R.array.rest_circular);
+    }
+
+    public void animateTo(long value) {
+        ValueAnimator animator = ValueAnimator.ofFloat(value, value - 1);
+        animator.setInterpolator(new LinearInterpolator());
+        animator.setStartDelay(0);
+        animator.setDuration(1000);
+        animator.addUpdateListener(valueAnimator -> {
+            float value1 = (float) valueAnimator.getAnimatedValue();
+            if (value1 < value)
+                setProgress(value1);
+        });
+
+        animator.start();
     }
 
     @Override

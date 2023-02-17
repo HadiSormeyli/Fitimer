@@ -24,7 +24,6 @@ public class FitimerApp extends Application {
         super.onCreate();
 
         createNotificationChannel();
-//        initService();
     }
 
     private void createNotificationChannel() {
@@ -38,10 +37,5 @@ public class FitimerApp extends Application {
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(notificationChannel);
         }
-    }
-
-    private void initService() {
-        Intent startTimerService = new Intent(this, TimerService.class);
-        ContextCompat.startForegroundService(this.getApplicationContext(), startTimerService);
     }
 }
