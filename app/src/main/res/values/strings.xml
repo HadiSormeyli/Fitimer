@@ -28,6 +28,9 @@
     <string name="update_timer_ok">OK</string>
     <string name="update_timer_cancel">CANCEL</string>
     <string name="update_timer_show_again">Don\'t show again</string>
+    <string name="delete_timer">Are you sure to delete this timer?</string>
+    <string name="yes">Yes</string>
+    <string name="no">NO</string>
 
     <array name="add_timer_titles">
         <item>Set Active Time</item>

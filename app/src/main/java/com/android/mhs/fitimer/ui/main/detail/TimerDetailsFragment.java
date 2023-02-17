@@ -1,6 +1,7 @@
 package com.android.mhs.fitimer.ui.main.detail;
 
 import android.annotation.SuppressLint;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,6 +11,8 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
@@ -222,11 +225,7 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
                 break;
 
             case R.id.delete_timer:
-                viewModel.deleteTimer();
-                if (timerService != null)
-                    if (timerService.getTimer() != null)
-                        timerService.close();
-                activity.onBackPressed();
+                showDeleteConfirmDialog();
                 break;
 
             case R.id.next_step_timer_bu:
@@ -249,6 +248,29 @@ public class TimerDetailsFragment extends BaseFragment<FragmentTimerDetailsBindi
                     timerService.previousFiveSecond();
                 break;
         }
+    }
+
+    private void showDeleteConfirmDialog() {
+        Dialog dialog = new Dialog(activity);
+        dialog.setContentView(R.layout.warning_alert_dialog_layout);
+
+        Window window = dialog.getWindow();
+        window.setBackgroundDrawable(null);
+        window.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        dialog.findViewById(R.id.yes_button).setOnClickListener(v -> {
+            viewModel.deleteTimer();
+            if (timerService != null)
+                if (timerService.getTimer() != null)
+                    if (timerService.checkTimerId(timer.getId()))
+                        timerService.close();
+            dialog.dismiss();
+            activity.onBackPressed();
+        });
+
+        dialog.findViewById(R.id.no_button).setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
     }
 
     private void playOrPause(boolean isSelected) {

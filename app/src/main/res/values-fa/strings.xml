@@ -29,6 +29,9 @@
     <string name="update_timer_ok">باشه</string>
     <string name="update_timer_cancel">لغو</string>
     <string name="update_timer_show_again">برای بار دیگر نمایش نده</string>
+    <string name="delete_timer">از حذف این تایمر مطمئن هستید؟</string>
+    <string name="yes">بله</string>
+    <string name="no">خیر</string>
 
     <array name="add_timer_titles">
         <item>تنظیم زمان فعالیت</item>

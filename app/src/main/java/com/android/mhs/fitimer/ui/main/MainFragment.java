@@ -10,6 +10,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
@@ -204,7 +205,7 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
 
 
         viewModel.getSearchText().observe(getViewLifecycleOwner(), text -> {
-            if (text != null) {
+            if (text != null && !TextUtils.isEmpty(text)) {
                 binding.searchCardView.setVisibility(View.VISIBLE);
             }
             timersAdapter.getFilter().filter(text, MainFragment.this);
@@ -239,12 +240,11 @@ public class MainFragment extends BaseFragment<FragmentMainBinding, MainViewMode
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if (binding.searchCardView.getVisibility() == View.VISIBLE)
-                    viewModel.setSearchText(charSequence.toString());//TODO : search bug
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
+                viewModel.setSearchText(editable.toString());
             }
         });
     }
