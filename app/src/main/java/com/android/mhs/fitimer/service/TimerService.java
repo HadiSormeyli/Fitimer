@@ -129,7 +129,7 @@ public class TimerService extends Service implements IntervalTimer.TimerTickList
             stopPlayer();
             player = MediaPlayer.create(this, R.raw.alarm);
             player.setLooping(true);
-//            player.start(); TODO:uncomment this line
+            player.start();
         }
 
         updateNotification(
